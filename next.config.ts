@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: "/portfolio-web",
   assetPrefix: "/portfolio-web/",
+  reactStrictMode: true,
+  images: {
+    unoptimized: true, // Optional: Use this if you're hosting images statically
+  },
 };
 
 export default nextConfig;
