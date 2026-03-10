@@ -1,5 +1,6 @@
 import { ExperienceTimeline } from "@/components/experience-timeline";
 import { SkillsMarquee } from "@/components/skills-marquee";
+import SpecialText from "@/components/special-text";
 import StatusIndicator from "@/components/ui/status-indicator";
 import Image from "next/image";
 import nextLogo from "../public/next.svg";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+        <SpecialText text="Hello World" type="typewriter" />
         <Image
           className="dark:invert"
           src={nextLogo}

@@ -1,52 +1,71 @@
 import { cn } from "@/lib/utils";
 import { IconType } from "react-icons";
-import { SiDocker } from "react-icons/si";
+import {
+  SiC,
+  SiCplusplus,
+  SiCss,
+  SiDocker,
+  SiFigma,
+  SiGit,
+  SiGo,
+  SiHtml5,
+  SiJavascript,
+  SiMongodb,
+  SiMui,
+  SiMysql,
+  SiNestjs,
+  SiNextdotjs,
+  SiNodered,
+  SiPostgresql,
+  SiPostman,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 import { Marquee } from "./ui/marquee";
 
-const reviews = [
-  {
-    name: "Jack",
-    username: "@jack",
-    body: "I've never seen anything like this before. It's amazing. I love it.",
-    icon: SiDocker,
-  },
+const skills = [
+  { name: "Go", icon: SiGo },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "Python", icon: SiPython },
+  { name: "C", icon: SiC },
+  { name: "C++", icon: SiCplusplus },
+  { name: "Postman", icon: SiPostman },
+  { name: "Git", icon: SiGit },
+  { name: "Docker", icon: SiDocker },
+  { name: "Figma", icon: SiFigma },
+  { name: "MongoDB", icon: SiMongodb },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "MySQL", icon: SiMysql },
+  { name: "React", icon: SiReact },
+  { name: "Next.js", icon: SiNextdotjs },
+  { name: "NestJS", icon: SiNestjs },
+  { name: "Tailwind CSS", icon: SiTailwindcss },
+  { name: "MUI", icon: SiMui },
+  { name: "HTML5", icon: SiHtml5 },
+  { name: "CSS3", icon: SiCss },
+  { name: "Node-RED", icon: SiNodered },
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
-const secondRow = reviews.slice(reviews.length / 2);
+const firstRow = skills.slice(0, skills.length / 2);
+const secondRow = skills.slice(skills.length / 2);
 
-const ReviewCard = ({
-  icon: Icon,
-  name,
-  username,
-  body,
-}: {
-  icon: IconType;
-  name: string;
-  username: string;
-  body: string;
-}) => {
+const SkillIcon = ({ icon: Icon, name }: { icon: IconType; name: string }) => {
   return (
-    <figure
+    <div
       className={cn(
-        "relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+        "relative flex cursor-pointer items-center justify-center overflow-hidden rounded-xl border p-4",
         // light styles
         "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
         // dark styles
         "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]",
       )}
+      title={name}
     >
-      <div className="flex flex-row items-center gap-2">
-        <Icon className="rounded-full" width="32" height="32" />
-        <div className="flex flex-col">
-          <figcaption className="text-sm font-medium dark:text-white">
-            {name}
-          </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
-        </div>
-      </div>
-      <blockquote className="mt-2 text-sm">{body}</blockquote>
-    </figure>
+      <Icon className="h-12 w-12" />
+    </div>
   );
 };
 
@@ -54,13 +73,8 @@ export function SkillsMarquee() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
-        ))}
-      </Marquee>
-      <Marquee reverse pauseOnHover className="[--duration:20s]">
-        {secondRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {firstRow.map((skill) => (
+          <SkillIcon key={skill.name} {...skill} />
         ))}
       </Marquee>
       <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
