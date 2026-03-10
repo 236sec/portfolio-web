@@ -1,58 +1,32 @@
 import { cn } from "@/lib/utils";
-import { IconType } from "react-icons";
-import {
-  SiC,
-  SiCplusplus,
-  SiCss,
-  SiDocker,
-  SiFigma,
-  SiGit,
-  SiGo,
-  SiHtml5,
-  SiJavascript,
-  SiMongodb,
-  SiMui,
-  SiMysql,
-  SiNestjs,
-  SiNextdotjs,
-  SiNodered,
-  SiPostgresql,
-  SiPostman,
-  SiPython,
-  SiReact,
-  SiTailwindcss,
-  SiTypescript,
-} from "react-icons/si";
+import Image from "next/image";
 import { Marquee } from "./ui/marquee";
 
 const skills = [
-  { name: "Go", icon: SiGo },
-  { name: "JavaScript", icon: SiJavascript },
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "Python", icon: SiPython },
-  { name: "C", icon: SiC },
-  { name: "C++", icon: SiCplusplus },
-  { name: "Postman", icon: SiPostman },
-  { name: "Git", icon: SiGit },
-  { name: "Docker", icon: SiDocker },
-  { name: "Figma", icon: SiFigma },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "PostgreSQL", icon: SiPostgresql },
-  { name: "MySQL", icon: SiMysql },
-  { name: "React", icon: SiReact },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "NestJS", icon: SiNestjs },
-  { name: "Tailwind CSS", icon: SiTailwindcss },
-  { name: "MUI", icon: SiMui },
-  { name: "HTML5", icon: SiHtml5 },
-  { name: "CSS3", icon: SiCss },
-  { name: "Node-RED", icon: SiNodered },
+  { name: "Go", slug: "go" },
+  { name: "JavaScript", slug: "javascript" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "Python", slug: "python" },
+  { name: "C", slug: "c" },
+  { name: "C++", slug: "cplusplus" },
+  { name: "Postman", slug: "postman" },
+  { name: "Git", slug: "git" },
+  { name: "Docker", slug: "docker" },
+  { name: "Figma", slug: "figma" },
+  { name: "MongoDB", slug: "mongodb" },
+  { name: "PostgreSQL", slug: "postgresql" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "React", slug: "react" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "NestJS", slug: "nestjs" },
+  { name: "Tailwind CSS", slug: "tailwindcss" },
+  { name: "MUI", slug: "mui" },
+  { name: "HTML5", slug: "html5" },
+  { name: "CSS", slug: "css" },
+  { name: "Node-RED", slug: "nodered" },
 ];
 
-const firstRow = skills.slice(0, skills.length / 2);
-const secondRow = skills.slice(skills.length / 2);
-
-const SkillIcon = ({ icon: Icon, name }: { icon: IconType; name: string }) => {
+const SkillIcon = ({ slug, name }: { slug: string; name: string }) => {
   return (
     <div
       className={cn(
@@ -64,7 +38,12 @@ const SkillIcon = ({ icon: Icon, name }: { icon: IconType; name: string }) => {
       )}
       title={name}
     >
-      <Icon className="h-12 w-12" />
+      <Image
+        width={70}
+        height={70}
+        src={`https://cdn.simpleicons.org/${slug}`}
+        alt={name}
+      />
     </div>
   );
 };
@@ -73,7 +52,7 @@ export function SkillsMarquee() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((skill) => (
+        {skills.map((skill) => (
           <SkillIcon key={skill.name} {...skill} />
         ))}
       </Marquee>
