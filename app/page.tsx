@@ -1,3 +1,6 @@
+import { ExperienceTimeline } from "@/components/experience-timeline";
+import { SkillsMarquee } from "@/components/skills-marquee";
+import StatusIndicator from "@/components/ui/status-indicator";
 import Image from "next/image";
 import nextLogo from "../public/next.svg";
 import vercelLogo from "../public/vercel.svg";
@@ -60,6 +63,20 @@ export default function Home() {
           >
             Documentation
           </a>
+        </div>
+        <div className="w-full">
+          <h1>Experience</h1>
+          <div className="w-full overflow-x-scroll">
+            <ExperienceTimeline />
+          </div>
+        </div>
+        <div>
+          <h1>Project</h1>
+          <StatusIndicator state="active" label="All System Operational" />
+        </div>
+        <div className="w-full">
+          <h1>Skills</h1>
+          <SkillsMarquee />
         </div>
       </main>
     </div>
