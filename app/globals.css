@@ -1,8 +1,6 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "tailwindcss/utilities";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -157,4 +155,10 @@
   html {
     @apply font-mono;
   }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

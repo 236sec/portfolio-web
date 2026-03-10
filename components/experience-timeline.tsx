@@ -52,7 +52,7 @@ const timelineData = [
 
 export function ExperienceTimeline() {
   return (
-    <Timeline orientation="horizontal">
+    <Timeline orientation="vertical">
       {timelineData.map((item, idx) => (
         <TimelineItem key={idx} variant={item.variant}>
           <TimelineItemDate>{item.date.toDateString()}</TimelineItemDate>
