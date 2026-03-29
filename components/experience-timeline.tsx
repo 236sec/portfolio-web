@@ -7,55 +7,37 @@ import Timeline, {
 
 const timelineData = [
   {
-    title: "Project Kickoff",
+    title: "Internship Software Developer",
+    secondTitle: "At Primo World Co., Ltd.",
     description:
-      "Initial meeting with stakeholders to define the roadmap and core requirements.",
-    date: new Date("2023-01-01"),
+      "Worked on a product CRM system, designed and implemented a new feature and write unit tests and integration tests to ensure code quality.",
+    from: new Date("2025-04-01"),
+    to: new Date("2025-09-30"),
     variant: "default" as const,
   },
-  {
-    title: "Research Phase",
-    description:
-      "Conducted user interviews and competitive analysis to refine the feature set.",
-    date: new Date("2023-01-15"),
-    variant: "secondary" as const,
-  },
-  {
-    title: "Prototype Approval",
-    description:
-      "Client signed off on the high-fidelity designs and interactive prototype.",
-    date: new Date("2023-02-01"),
-    variant: "default" as const,
-  },
-  {
-    title: "Unexpected API Delays",
-    description:
-      "Third-party integration is taking longer than expected due to rate limiting issues.",
-    date: new Date("2023-02-10"),
-    variant: "outline" as const,
-  },
-  {
-    title: "Critical Database Failure",
-    description:
-      "Data corruption occurred during migration. rollback procedures initiated immediately.",
-    date: new Date("2023-02-14"),
-    variant: "destructive" as const,
-  },
-  {
-    title: "Beta Launch",
-    description:
-      "System stabilized and released to the first batch of 500 internal users.",
-    date: new Date("2023-03-01"),
-    variant: "default" as const,
-  },
+  // {
+  //   title: "Beta Launch",
+  //   description:
+  //     "System stabilized and released to the first batch of 500 internal users.",
+  //   from: new Date("2023-03-01"),
+  //   to: new Date("2023-03-31"),
+  //   variant: "default" as const,
+  // },
 ];
+
+const dateOptions = {
+  year: "numeric",
+  month: "long",
+} as Intl.DateTimeFormatOptions;
 
 export function ExperienceTimeline() {
   return (
     <Timeline orientation="vertical">
       {timelineData.map((item, idx) => (
         <TimelineItem key={idx} variant={item.variant}>
-          <TimelineItemDate>{item.date.toDateString()}</TimelineItemDate>
+          <TimelineItemDate>
+            {`${item.from.toLocaleDateString("en-GB", dateOptions)} - ${item.to.toLocaleDateString("en-GB", dateOptions)}`}
+          </TimelineItemDate>
           <TimelineItemTitle>{item.title}</TimelineItemTitle>
           <TimelineItemDescription>{item.description}</TimelineItemDescription>
         </TimelineItem>

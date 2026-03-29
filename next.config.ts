@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: true, // Optional: Use this if you're hosting images statically
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+      },
+    ],
   },
 };
 

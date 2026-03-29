@@ -1,4 +1,6 @@
+import Activities from "@/components/activities";
 import { ExperienceTimeline } from "@/components/experience-timeline";
+import Projects from "@/components/projects";
 import { SkillsMarquee } from "@/components/skills-marquee";
 import SpecialText from "@/components/special-text";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
@@ -73,48 +75,13 @@ export default function Home() {
         {/* 4. Projects */}
         <section className="w-full flex flex-col gap-4">
           <h2 className="text-2xl font-bold">Projects</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 border rounded-xl border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
-              <h3 className="font-semibold text-lg">E-Commerce Platform</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-                A full-stack e-commerce solution built with Next.js, Stripe, and
-                Tailwind CSS.
-              </p>
-            </div>
-            <div className="p-4 border rounded-xl border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
-              <h3 className="font-semibold text-lg">Portfolio Website</h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-                The personal portfolio website you are currently viewing,
-                featuring modern animations.
-              </p>
-            </div>
-          </div>
+          <Projects />
         </section>
 
         {/* 5. Activities or Event */}
         <section className="w-full flex flex-col gap-4">
           <h2 className="text-2xl font-bold">Activities & Events</h2>
-          <ul className="list-disc list-inside text-zinc-600 dark:text-zinc-400 space-y-2">
-            <li>
-              <strong className="text-zinc-900 dark:text-zinc-100">
-                Hackathon Winner
-              </strong>{" "}
-              - Built an AI-powered code reviewer in 48 hours (2025).
-            </li>
-            <li>
-              <strong className="text-zinc-900 dark:text-zinc-100">
-                Tech Meetup Speaker
-              </strong>{" "}
-              - Delivered a talk on &quot;Modern React Patterns&quot; at the
-              local JS user group.
-            </li>
-            <li>
-              <strong className="text-zinc-900 dark:text-zinc-100">
-                Open Source Contributor
-              </strong>{" "}
-              - Regular contributor to various popular UI libraries.
-            </li>
-          </ul>
+          <Activities />
         </section>
       </div>
     </div>
