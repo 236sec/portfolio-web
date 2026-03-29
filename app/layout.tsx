@@ -36,7 +36,7 @@ export default function RootLayout({
         <main
           style={{ padding: "20px 32px" }}
           className={cn(
-            "flex min-h-screen w-full items-center justify-center bg-white dark:bg-black",
+            "flex min-h-screen w-screen overflow-x-hidden items-center justify-center bg-white dark:bg-black px-[20px] py-[32px]",
           )}
         >
           {children}
