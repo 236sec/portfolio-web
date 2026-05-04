@@ -2,6 +2,7 @@
 import { cn } from "@/lib/utils";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import {
   Carousel,
@@ -10,7 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import StatusIndicator from "./ui/status-indicator";
 
 const projects = [
   {
@@ -19,6 +19,7 @@ const projects = [
       "A full-stack e-commerce solution built with Next.js, Stripe, and Tailwind CSS.",
     image: "https://picsum.photos/seed/1/400/300",
     link: "https://example.com",
+    repoName: "ecommerce-platform",
   },
   {
     title: "Portfolio Website",
@@ -26,12 +27,15 @@ const projects = [
       "The personal portfolio website you are currently viewing, featuring modern animations.",
     image: "https://picsum.photos/seed/2/400/300",
     link: "https://example.com",
+    repoName: "portfolio-web",
   },
   {
     title: "Chat Application",
     description:
       "A real-time chat application using WebSockets and Node.js for seamless communication.",
     image: "https://picsum.photos/seed/3/400/300",
+    link: null,
+    repoName: "chat-app",
   },
   {
     title: "Task Management Tool",
@@ -39,6 +43,7 @@ const projects = [
       "A productivity tool to manage tasks and projects, built with React and Firebase.",
     image: "https://picsum.photos/seed/4/400/300",
     link: "https://example.com",
+    repoName: "task-manager",
   },
 ];
 
@@ -48,7 +53,7 @@ export default function Projects() {
       orientation="horizontal"
       opts={{ loop: true, align: "start" }}
       plugins={[Autoplay({ delay: 2000 })]}
-      className={cn("w-full px-5")}
+      className={cn("w-full px-5 h-fit")}
     >
       <CarouselContent className={cn("-ml-5 w-full")}>
         {projects.map((project, idx) => (
@@ -66,21 +71,27 @@ export default function Projects() {
                 </div>
                 {project.title}
               </CardHeader>
-              <CardContent>
-                {project.description}
-                <div className="mt-4">
+              <CardContent className="flex flex-col justify-between">
+                <div>{project.description}</div>
+                <div className="mt-4 flex items-center space-x-4">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 transition"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
-                    href={project.link}
+                    href={`https://github.com/${project.repoName}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn({
-                      "pointer-events-none": !project.link,
-                    })}
+                    className="flex items-center text-gray-600 hover:text-gray-900 transition"
                   >
-                    <StatusIndicator
-                      state={project.link ? "active" : "down"}
-                      label={project.link ? "Live" : "Down"}
-                    />
+                    <FaGithub className="mr-2 text-xl" />
+                    {project.repoName}
                   </a>
                 </div>
               </CardContent>
