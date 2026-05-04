@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === "production";
-const basePath = "/portfolio-web";
+export const basePath = "/portfolio-web";
 
 const nextConfig: NextConfig = {
   /* config options here */

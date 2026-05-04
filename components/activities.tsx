@@ -1,5 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
+import { basePath } from "@/next.config";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { Card, CardContent, CardHeader } from "./ui/card";
@@ -16,7 +17,7 @@ const activities = [
     title: "GCP Chaiyo Event",
     description:
       "Visit the official GCP Chaiyo event page for information, updates, and event details.",
-    image: "/images/gcp.png",
+    image: `${basePath}/images/gcp.png`,
     link: "https://rsvp.withgoogle.com/events/chaiyogcp-s6/home",
   },
 ];
