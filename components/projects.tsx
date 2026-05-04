@@ -14,36 +14,34 @@ import {
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Crypto Portfolio Dashboard",
     description:
-      "A full-stack e-commerce solution built with Next.js, Stripe, and Tailwind CSS.",
-    image: "https://picsum.photos/seed/1/400/300",
-    link: "https://example.com",
-    repoName: "ecommerce-platform",
+      "A full-stack Web3 dashboard that consolidates and tracks cross-platform cryptocurrency assets. Built with Next.js and NestJS, its standout feature is an interactive AI agent that uses LLM function calling to autonomously analyze user portfolios and deliver personalized market insights.",
+    image:
+      "https://media.discordapp.net/attachments/1466050886978637939/1466065961302884402/image.png?ex=69f9f3d3&is=69f8a253&hm=dd554146454dc7e71997a91125bd742abf76f2fcfd747e58c4b52b0063240f92&=&format=webp&quality=lossless&width=1936&height=1674",
+    link: "https://github.com/236sec/seniorProjectBackend",
+    repoName: "crypto-portfolio",
+    isLive: false,
   },
   {
-    title: "Portfolio Website",
+    title: "Startdii (Collaborative Learning App)",
     description:
-      "The personal portfolio website you are currently viewing, featuring modern animations.",
-    image: "https://picsum.photos/seed/2/400/300",
-    link: "https://example.com",
-    repoName: "portfolio-web",
+      "A mobile application designed to enhance educational collaboration through seamless resource sharing and interactive quizzes. Developed with React Native, it relies on a robust, scalable backend architecture utilizing containerized NestJS microservices and MongoDB to handle secure authentication and data pipelines.",
+    image:
+      "https://raw.githubusercontent.com/ProgrammerTon/Startdii/refs/heads/main/image/app-uxui.png",
+    link: "https://github.com/ProgrammerTon/Startdii",
+    repoName: "startdii",
+    isLive: false,
   },
   {
-    title: "Chat Application",
+    title: "KULAI (IoT Transit System)",
     description:
-      "A real-time chat application using WebSockets and Node.js for seamless communication.",
-    image: "https://picsum.photos/seed/3/400/300",
-    link: null,
-    repoName: "chat-app",
-  },
-  {
-    title: "Task Management Tool",
-    description:
-      "A productivity tool to manage tasks and projects, built with React and Firebase.",
-    image: "https://picsum.photos/seed/4/400/300",
-    link: "https://example.com",
-    repoName: "task-manager",
+      "An end-to-end IoT solution engineered to provide real-time bus tracking for university transit. By integrating ESP32 GPS modules with Node-RED, the system continuously transmits live geolocation data to a responsive React web interface powered by the Google Maps API, significantly improving transit visibility for students.",
+    image:
+      "https://github.com/236sec/Esp32Project/blob/main/image.png?raw=true",
+    link: "https://github.com/236sec/Esp32Project",
+    repoName: "kulai",
+    isLive: false,
   },
 ];
 
@@ -69,12 +67,14 @@ export default function Projects() {
                     className="rounded-t-lg"
                   />
                 </div>
-                {project.title}
+                <h3 className="truncate text-lg font-semibold">
+                  {project.title}
+                </h3>
               </CardHeader>
               <CardContent className="flex flex-col justify-between">
                 <div>{project.description}</div>
                 <div className="mt-4 flex items-center space-x-4">
-                  {project.link && (
+                  {project.isLive && (
                     <a
                       href={project.link}
                       target="_blank"
@@ -85,7 +85,7 @@ export default function Projects() {
                     </a>
                   )}
                   <a
-                    href={`https://github.com/${project.repoName}`}
+                    href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center text-gray-600 hover:text-gray-900 transition"
