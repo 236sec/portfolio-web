@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   },
   reactStrictMode: true,
   images: {
+    path: `${basePath}/_next/image`,
     unoptimized: true, // Optional: Use this if you're hosting images statically
     remotePatterns: [
       {
