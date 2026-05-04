@@ -16,7 +16,7 @@ const activities = [
     title: "GCP Chaiyo Event",
     description:
       "Visit the official GCP Chaiyo event page for information, updates, and event details.",
-    image: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/gcp.png`,
+    image: "/images/gcp.png",
     link: "https://rsvp.withgoogle.com/events/chaiyogcp-s6/home",
   },
 ];
